@@ -37,8 +37,9 @@ func Analyze(path string, opts Options) (*Result, error) {
 	return res, nil
 }
 
+// sin-debt: portability, upgrade: use gosseract bindings instead of exec.LookPath
 func runOCR(path string) (string, error) {
-	return "", fmt.Errorf("Tesseract not available")
+	return "", fmt.Errorf("Tesseract not available — install tesseract-ocr or set SIN_OCR_ENGINE=gosseract")
 }
 
 func (r *Result) ToMarkdown() string {

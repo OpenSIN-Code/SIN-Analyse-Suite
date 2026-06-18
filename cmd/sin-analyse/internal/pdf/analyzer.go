@@ -33,8 +33,9 @@ func Analyze(path string, opts Options) (*Result, error) {
 	return res, nil
 }
 
+// sin-debt: portability, upgrade: vendor pdfcpu as direct Go dependency instead of subprocess
 func extractText(path string) (int, string, error) {
-	return 0, "", fmt.Errorf("pdfcpu extraction not wired")
+	return 0, "", fmt.Errorf("pdfcpu extraction not wired — add github.com/pdfcpu/pdfcpu dependency and wire pdfcpu.Extract")
 }
 
 func (r *Result) ToMarkdown() string {

@@ -21,6 +21,7 @@ type Result struct {
 	Transcription string  `json:"transcription,omitempty"`
 }
 
+// sin-debt: perf, upgrade: add frame-by-frame analysis with scene-change detection
 func Analyze(path string, opts Options) (*Result, error) {
 	if _, err := exec.LookPath("ffmpeg"); err != nil {
 		return nil, fmt.Errorf("ffmpeg required but not found on PATH")
