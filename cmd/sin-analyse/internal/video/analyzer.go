@@ -44,7 +44,9 @@ func getDuration(path string) (float64, error) {
 		return 0, err
 	}
 	var d float64
-	fmt.Sscanf(strings.TrimSpace(string(out)), "%f", &d)
+	if _, err := fmt.Sscanf(strings.TrimSpace(string(out)), "%f", &d); err != nil {
+		return 0, fmt.Errorf("parse duration: %w", err)
+	}
 	return d, nil
 }
 
