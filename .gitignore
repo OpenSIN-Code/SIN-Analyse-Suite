@@ -1,0 +1,12 @@
+/sin-analyse
+/sin-analyse.exe
+/tmp/
+/dist/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+*.out
+*.test
+coverage.out

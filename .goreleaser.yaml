@@ -1,0 +1,22 @@
+project_name: sin-analyse
+builds:
+  - main: ./cmd/sin-analyse
+    binary: sin-analyse
+    env: [CGO_ENABLED=0]
+    goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+    ignore:
+      - goos: windows
+        goarch: arm64
+archives:
+  - format_overrides:
+      - goos: windows
+        format: zip
+checksum:
+  name_template: "checksums.txt"
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+release:
+  github:
+    owner: OpenSIN-Code
+    name: SIN-Analyse-Suite
