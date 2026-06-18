@@ -1,4 +1,7 @@
+version: 2
+
 project_name: sin-analyse
+
 builds:
   - main: ./cmd/sin-analyse
     binary: sin-analyse
@@ -8,14 +11,19 @@ builds:
     ignore:
       - goos: windows
         goarch: arm64
+
 archives:
-  - format_overrides:
+  - formats: [tar.gz]
+    format_overrides:
       - goos: windows
-        format: zip
+        formats: [zip]
+
 checksum:
   name_template: "checksums.txt"
+
 snapshot:
-  name_template: "{{ incpatch .Version }}-next"
+  version_template: "{{ incpatch .Version }}-next"
+
 release:
   github:
     owner: OpenSIN-Code
