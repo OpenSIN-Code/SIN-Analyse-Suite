@@ -91,7 +91,7 @@ func handleAnalyseImage(ctx context.Context, req mcp.CallToolRequest) (*mcp.Call
 	if path == "" {
 		return mcp.NewToolResultError("'path' is required"), nil
 	}
-	res, err := image.Analyze(path, image.Options{OCR: 	mcp.ParseBoolean(req, "ocr", false)})
+	res, err := image.Analyze(path, image.Options{OCR: mcp.ParseBoolean(req, "ocr", false)})
 	if err != nil {
 		return mcp.NewToolResultError(err.Error()), nil
 	}
@@ -115,7 +115,7 @@ func handleAnalysePDF(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallTo
 	if path == "" {
 		return mcp.NewToolResultError("'path' is required"), nil
 	}
-	res, err := pdf.Analyze(path, pdf.Options{OCR: 	mcp.ParseBoolean(req, "ocr", false)})
+	res, err := pdf.Analyze(path, pdf.Options{OCR: mcp.ParseBoolean(req, "ocr", false)})
 	if err != nil {
 		return mcp.NewToolResultError(err.Error()), nil
 	}

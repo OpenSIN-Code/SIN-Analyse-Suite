@@ -27,7 +27,9 @@ func TestAnalyze_WithErrors(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer os.Remove(f.Name())
-	f.WriteString("ERROR connection refused\nERROR timeout\nWARN retrying\n")
+	if _, err := f.WriteString("ERROR connection refused\nERROR timeout\nWARN retrying\n"); err != nil {
+		t.Fatal(err)
+	}
 	f.Close()
 	res, err := Analyze(f.Name(), Options{})
 	if err != nil {
@@ -51,7 +53,9 @@ func TestAnalyze_Focus(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer os.Remove(f.Name())
-	f.WriteString("ERROR db timeout\nINFO ping ok\nERROR db timeout\n")
+	if _, err := f.WriteString("ERROR db timeout\nINFO ping ok\nERROR db timeout\n"); err != nil {
+		t.Fatal(err)
+	}
 	f.Close()
 	res, err := Analyze(f.Name(), Options{Focus: "db"})
 	if err != nil {
