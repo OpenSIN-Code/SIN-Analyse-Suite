@@ -264,7 +264,7 @@ func writeJSON(path string, v any) error {
 		return fmt.Errorf("marshal: %w", err)
 	}
 	data = append(data, '\n')
-	if err := os.WriteFile(path, data, 0o644); err != nil {
+	if err := os.WriteFile(path, data, 0o600); err != nil {
 		return fmt.Errorf("write %s: %w", path, err)
 	}
 	fmt.Printf("Registered sin-analyse in %s\n", path)

@@ -133,7 +133,7 @@ func TestRegisterPreservesExisting(t *testing.T) {
 		},
 	}
 	data, _ := json.MarshalIndent(existing, "", "  ")
-	if err := os.WriteFile(configPath, data, 0o644); err != nil {
+	if err := os.WriteFile(configPath, data, 0o600); err != nil {
 		t.Fatal(err)
 	}
 
