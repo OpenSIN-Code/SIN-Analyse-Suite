@@ -1,10 +1,11 @@
 package main
 
 import (
+	"log"
+
 	"github.com/OpenSIN-Code/SIN-Analyse-Suite/cmd/sin-analyse/internal/mcp"
 	"github.com/mark3labs/mcp-go/server"
 	"github.com/spf13/cobra"
-	"log"
 )
 
 var serveCmd = &cobra.Command{

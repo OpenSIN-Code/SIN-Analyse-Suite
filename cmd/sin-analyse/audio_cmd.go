@@ -3,9 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
+
 	"github.com/OpenSIN-Code/SIN-Analyse-Suite/cmd/sin-analyse/internal/audio"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 var audioCmd = &cobra.Command{

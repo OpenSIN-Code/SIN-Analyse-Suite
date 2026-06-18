@@ -58,8 +58,12 @@ func ffprobeAudioInfo(path string) (sr, ch int, err error) {
 	}
 	parts := strings.Split(strings.TrimSpace(string(out)), ",")
 	if len(parts) >= 2 {
-		fmt.Sscanf(parts[0], "%d", &sr)
-		fmt.Sscanf(parts[1], "%d", &ch)
+		if _, err := fmt.Sscanf(parts[0], "%d", &sr); err != nil {
+			return 0, 0, fmt.Errorf("parse sample_rate: %w", err)
+		}
+		if _, err := fmt.Sscanf(parts[1], "%d", &ch); err != nil {
+			return 0, 0, fmt.Errorf("parse channels: %w", err)
+		}
 	}
 	return
 }
