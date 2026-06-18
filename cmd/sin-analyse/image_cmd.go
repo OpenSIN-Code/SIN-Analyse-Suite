@@ -1,11 +1,11 @@
 package main
 
 import (
-	"os"
 	"encoding/json"
 	"fmt"
 	"github.com/OpenSIN-Code/SIN-Analyse-Suite/cmd/sin-analyse/internal/image"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 var imageCmd = &cobra.Command{

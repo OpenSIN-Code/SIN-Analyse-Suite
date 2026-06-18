@@ -21,13 +21,13 @@ type ColumnInfo struct {
 }
 
 type Result struct {
-	Path        string            `json:"path"`
-	SizeKB      int64             `json:"size_kb"`
-	RowCount    int               `json:"row_count"`
-	ColumnCount int               `json:"column_count"`
-	Columns     []ColumnInfo      `json:"columns,omitempty"`
+	Path        string              `json:"path"`
+	SizeKB      int64               `json:"size_kb"`
+	RowCount    int                 `json:"row_count"`
+	ColumnCount int                 `json:"column_count"`
+	Columns     []ColumnInfo        `json:"columns,omitempty"`
 	SampleRows  []map[string]string `json:"sample_rows,omitempty"`
-	DDL         string            `json:"ddl,omitempty"`
+	DDL         string              `json:"ddl,omitempty"`
 }
 
 func Analyze(path string, opts Options) (*Result, error) {

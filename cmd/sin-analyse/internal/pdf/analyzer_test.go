@@ -19,7 +19,9 @@ func TestAnalyze_ToMarkdown(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer os.Remove(f.Name())
-	f.Write([]byte("%PDF-1.4 fake"))
+	if _, err := f.Write([]byte("%PDF-1.4 fake")); err != nil {
+		t.Fatal(err)
+	}
 	f.Close()
 	res, err := Analyze(f.Name(), Options{})
 	if err != nil {

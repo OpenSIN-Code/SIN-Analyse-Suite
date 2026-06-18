@@ -12,7 +12,9 @@ func TestAnalyze_CSV(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer os.Remove(f.Name())
-	f.WriteString("name,age,email\nAlice,30,alice@test.com\nBob,25,bob@test.com\n")
+	if _, err := f.WriteString("name,age,email\nAlice,30,alice@test.com\nBob,25,bob@test.com\n"); err != nil {
+		t.Fatal(err)
+	}
 	f.Close()
 	res, err := Analyze(f.Name(), Options{SampleSize: 2, DDL: true})
 	if err != nil {
